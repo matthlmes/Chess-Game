@@ -10,6 +10,8 @@ import java.util.Map;
 import com.chess.engine.pieces.Piece;
 import com.google.common.collect.ImmutableMap;
 
+import main.java.com.chess.engine.board.BoardUtils;
+
 public abstract class Tile {
 
     // The coordinate (0-63) of this tile on the board.
@@ -21,7 +23,7 @@ public abstract class Tile {
     // Creates all possible empty tiles and stores them in an immutable map.
     private static Map<Integer, EmptyTile> createAllPossibleEmptyTiles() {
         final Map<Integer, EmptyTile> emptyTileMap = new HashMap<>();
-        for(int i = 0; i < 64; i++){
+        for(int i = 0; i < BoardUtils.NUM_TILES; i++){
             emptyTileMap.put(i, new EmptyTile(i));
         }
         // Returns an immutable copy of the map.
@@ -34,7 +36,7 @@ public abstract class Tile {
     }
 
     // Constructor for Tile, only accessible by subclasses.
-    private Tile(int tileCoord) {
+    private Tile(final int tileCoord) {
         this.tileCoord = tileCoord;
     }
 
@@ -66,7 +68,7 @@ public abstract class Tile {
 
         private final Piece pieceOnTile;
 
-        private OccupiedTile(int tileCoord, Piece pieceOnTile) {
+        private OccupiedTile(int tileCoord, final Piece pieceOnTile) {
             super(tileCoord);
             this.pieceOnTile = pieceOnTile;
         }
