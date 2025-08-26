@@ -6,11 +6,12 @@ package com.chess.engine.board;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Collections;
 
 import com.chess.engine.pieces.Piece;
-import com.google.common.collect.ImmutableMap;
 
 import main.java.com.chess.engine.board.BoardUtils;
+
 
 public abstract class Tile {
 
@@ -27,7 +28,7 @@ public abstract class Tile {
             emptyTileMap.put(i, new EmptyTile(i));
         }
         // Returns an immutable copy of the map.
-        return ImmutableMap.copyOf(emptyTileMap);
+        return Collections.unmodifiableMap(emptyTileMap);
     }
 
     // Factory method to create a tile: occupied if a piece is present, otherwise empty.

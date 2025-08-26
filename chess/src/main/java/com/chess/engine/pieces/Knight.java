@@ -2,15 +2,17 @@ package main.java.com.chess.engine.pieces;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
-import com.google.common.collect.ImmutableList;
+import com.chess.engine.board.Tile;
+import com.chess.engine.pieces.Piece;
 
 import main.java.com.chess.engine.Alliance;
 import main.java.com.chess.engine.board.Move.*;
 import main.java.com.chess.engine.board.Board;
 import main.java.com.chess.engine.board.BoardUtils;
-import main.java.com.chess.engine.board.Tile;
+import main.java.com.chess.engine.board.Move;
 
 public class Knight extends Piece {
 
@@ -54,7 +56,7 @@ public class Knight extends Piece {
         }
 
 
-        return ImmutableList.copyOf(legalMoves);
+        return Collections.unmodifiableList(legalMoves);
     }
 
     private static boolean isFirstColumnExclusion(final int currentPosition, final int candidateOffset){

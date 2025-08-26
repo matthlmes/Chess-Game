@@ -1,6 +1,6 @@
 package main.java.com.chess.engine.board;
 
-import main.java.com.chess.engine.pieces.Piece;
+import com.chess.engine.pieces.Piece;
 
 public abstract class Move {
 

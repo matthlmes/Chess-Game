@@ -14,11 +14,11 @@ import main.java.com.chess.engine.board.Board;
 import main.java.com.chess.engine.board.BoardUtils;
 import main.java.com.chess.engine.board.Move;
 
-public class Rook extends Piece {
+public class Queen extends Piece {
 
-    private static final int[] CANDIDATE_MOVE_VECTOR_COORDINATES = {-8, -1, 1, 8};
+    private static final int[] CANDIDATE_MOVE_VECTOR_COORDINATES = {-9, -8, -7, -1, 1, 7, 8, 9};
 
-    Rook(int piecePos, Alliance pieceAlliance) {
+    Queen(int piecePos, Alliance pieceAlliance) {
         super(piecePos, pieceAlliance);
     }
 
@@ -57,16 +57,12 @@ public class Rook extends Piece {
                 }
             }
         }
-
-
         return Collections.unmodifiableList(legalMoves);
     }
-
     private static boolean isFirstColumnExclusion(final int currentPosition, final int candidateOffset){
-        return BoardUtils.FIRST_COLUMN[currentPosition] && (candidateOffset == -1);
+        return BoardUtils.FIRST_COLUMN[currentPosition] && (candidateOffset == -1 || candidateOffset == -9 || candidateOffset == 7);
     }
     private static boolean isEighthColumnExclusion(final int currentPosition, final int candidateOffset){
-        return BoardUtils.EIGHTH_COLUMN[currentPosition] && (candidateOffset == 1);
+        return BoardUtils.EIGHTH_COLUMN[currentPosition] && (candidateOffset == 1 || candidateOffset == -7 || candidateOffset == 9);
     }
-
 }
