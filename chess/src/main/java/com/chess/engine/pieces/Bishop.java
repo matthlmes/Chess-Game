@@ -2,7 +2,7 @@ package main.java.com.chess.engine.pieces;
 
 import main.java.com.chess.engine.Alliance;
 import main.java.com.chess.engine.board.Board;
-import main.java.com.chess.engine.Move;
+import main.java.com.chess.engine.Move.*;
 
 import com.google.common.collect.ImmutableList;
 
@@ -40,13 +40,13 @@ public class Bishop extends Piece {
                     final Tile candidateDestinationTile = board.getTile(candidateDestinationCoordinate);
 
                     if(!candidateDestinationTile.isTileOccupied()){
-                        legalMoves.add(new Move.MajorMove(board, this, candidateDestinationCoordinate));
+                        legalMoves.add(new MajorMove(board, this, candidateDestinationCoordinate));
                     } else {
                         final Piece pieceAtDestination = candidateDestinationTile.getPiece();
                         final Alliance pieceAlliance = pieceAtDestination.getPieceAlliance();
 
                         if(this.pieceAlliance != pieceAlliance){
-                            legalMoves.add(new Move.AttackMove(board, this, candidateDestinationCoordinate, pieceAtDestination));
+                            legalMoves.add(new AttackMove(board, this, candidateDestinationCoordinate, pieceAtDestination));
                         }
                         break;
                     }
