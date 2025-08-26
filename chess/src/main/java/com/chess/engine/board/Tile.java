@@ -46,7 +46,7 @@ public abstract class Tile {
 
     // EmptyTile subclass represents a tile with no piece.
     public static final class EmptyTile extends Tile{
-        EmptyTile(final int coord) {
+        private EmptyTile(final int coord) {
             super(coord);
         }
 
@@ -66,7 +66,7 @@ public abstract class Tile {
 
         private final Piece pieceOnTile;
 
-        OccupiedTile(int tileCoord, Piece pieceOnTile) {
+        private OccupiedTile(int tileCoord, Piece pieceOnTile) {
             super(tileCoord);
             this.pieceOnTile = pieceOnTile;
         }
